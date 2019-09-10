@@ -1,0 +1,15 @@
+#kategori {
+  margin-top: 2em;
+}
+#kategori button {
+  margin: 0.5em;
+}
+#kategori button {
+  color: #1ea62b;
+  border: 1px solid #85e68f;
+  border-radius: 2px;
+}
+#kategori button:hover {
+  color: white;
+  background: #85e68f;
+}
