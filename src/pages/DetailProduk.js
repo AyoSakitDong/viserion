@@ -11,6 +11,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import InputGroup from "react-bootstrap/InputGroup";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
+import ImageZoom from "react-medium-image-zoom";
+import "../style/tab.css";
 export class DetailProduk extends Component {
   constructor() {
     super();
@@ -37,6 +39,11 @@ export class DetailProduk extends Component {
     });
   };
   render() {
+    const descBox = {
+      border: "1px solid #6fcf97",
+      borderTop: "0",
+      padding: "1em"
+    };
     const title = {
       fontWeight: "bold",
       fontSize: "36px",
@@ -56,23 +63,36 @@ export class DetailProduk extends Component {
       <main>
         <Container className="bg-white" style={{ paddingTop: "4em" }}>
           <Row>
-            <Col sm="5"></Col>
+            <Col sm="5">
+              <ImageZoom
+                image={{
+                  src: "http://placekitten.com/g/500/500",
+                  alt: "Cute Cat",
+                  className: "img",
+                  style: { width: "425px" }
+                }}
+                zoomImage={{
+                  src: "bridge-big.jpg",
+                  alt: "Golden Gate Bridge"
+                }}
+              />
+            </Col>
             <Col sm="7">
               <div>
                 <p style={title}>Nama Obat</p>
                 <div style={{ position: "inline-block" }}>
                   <Row>
-                    <Col sm="3">
-                      <div className="text-warning">
+                    <Col>
+                      <span className="text-warning">
                         <FontAwesomeIcon icon={farStar} />
                         <FontAwesomeIcon icon={farStar} />
                         <FontAwesomeIcon icon={farStar} />
                         <FontAwesomeIcon icon={farStar} />
                         <FontAwesomeIcon icon={farStar} />
-                      </div>
-                    </Col>
-                    <Col sm="9">
-                      <p>(Belum ada Ulasan)</p>
+                      </span>
+                      <span style={{ marginLeft: "1em" }}>
+                        (Belum ada Ulasan)
+                      </span>
                     </Col>
                   </Row>
                 </div>
@@ -96,6 +116,7 @@ export class DetailProduk extends Component {
                         onChange={this.handleChange}
                         value={this.state.jumlah}
                         aria-describedby="basic-addon1"
+                        className="text-center"
                       />
                       <InputGroup.Append>
                         <Button onClick={this.handlePlus} variant="success">
@@ -122,15 +143,16 @@ export class DetailProduk extends Component {
             </Col>
           </Row>
           <Tabs
+            style={{ marginTop: "1em" }}
             defaultActiveKey="home"
             transition={false}
             id="noanim-tab-example"
           >
             <Tab eventKey="home" title="Deskripsi">
-              <div>wajwjaw</div>
+              <div style={descBox}>wajwjaw</div>
             </Tab>
             <Tab eventKey="profile" title="Profile">
-              <div>duar</div>
+              <div style={descBox}>duar</div>
             </Tab>
           </Tabs>
         </Container>

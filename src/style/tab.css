@@ -1,0 +1,10 @@
+nav {
+  box-shadow: unset;
+}
+.nav-link.active {
+  color: #6fcf97 !important;
+  border-color: #6fcf97 #6fcf97 #ffffff #6fcf97 !important;
+}
+.nav-tabs {
+  border-bottom: 1px solid #6fcf97;
+}
