@@ -38,7 +38,7 @@ export class Search extends Component {
       fontWeight: "bold"
     };
     let i = 1;
-    const mapResult = this.state.result ? (
+    const mapResult = this.state.result.length ? (
       this.state.result.map(item => {
         const style = {
           width: "33%",

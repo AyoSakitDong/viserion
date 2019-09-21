@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Search from "./pages/Search";
+import Cart from "./pages/Cart";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import DetailProduk from "./pages/DetailProduk";
@@ -28,6 +29,7 @@ function App() {
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
           <Route path="/search" exact component={Search} />
+          <Route path="/cart" exact component={Cart} />
           <Route path="/detailProduk" exact component={DetailProduk} />
           <Route component={NotFound} />
         </Switch>
