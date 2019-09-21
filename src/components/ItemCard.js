@@ -4,12 +4,12 @@ import { faStar as farStar } from "@fortawesome/free-regular-svg-icons";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../style/card.css";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 export class ItemCard extends Component {
   render() {
     return (
-      <div style={{ padding: "1em" }}>
-        <Link to={'/detailproduk'}>
+      <div>
+        <Link to={"/detailproduk"}>
           <Card className="mx-auto">
             <Card.Img variant="top" src="https://via.placeholder.com/100x80" />
             <Card.Body>

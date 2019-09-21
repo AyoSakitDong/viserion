@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 //pages
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import Search from "./pages/Search";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 import DetailProduk from "./pages/DetailProduk";
@@ -26,7 +27,8 @@ function App() {
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
-          <Route path="/detailProduk" exact component={DetailProduk}/>
+          <Route path="/search" exact component={Search} />
+          <Route path="/detailProduk" exact component={DetailProduk} />
           <Route component={NotFound} />
         </Switch>
         <Footer />
