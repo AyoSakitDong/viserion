@@ -61,7 +61,10 @@ export class DetailProduk extends Component {
     };
     return (
       <main>
-        <Container className="bg-white" style={{ paddingTop: "4em" }}>
+        <Container
+          className="bg-white"
+          style={{ paddingTop: "2em", paddingBottom: "2em" }}
+        >
           <Row>
             <Col sm="5">
               <ImageZoom
@@ -79,7 +82,7 @@ export class DetailProduk extends Component {
             </Col>
             <Col sm="7">
               <div>
-                <p style={title}>Nama Obat</p>
+                <p style={{ ...title, border: "10px" }}>Nama Obat</p>
                 <div style={{ position: "inline-block" }}>
                   <Row>
                     <Col>
