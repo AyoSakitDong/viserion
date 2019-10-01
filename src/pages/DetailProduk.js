@@ -117,6 +117,7 @@ export class DetailProduk extends Component {
                       </InputGroup.Prepend>
                       <FormControl
                         name="jumlah"
+                        type="number"
                         onChange={this.handleChange}
                         value={this.state.jumlah}
                         aria-describedby="basic-addon1"
