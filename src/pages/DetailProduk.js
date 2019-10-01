@@ -34,9 +34,11 @@ export class DetailProduk extends Component {
   };
   handleChange = event => {
     const { name, value } = event.target;
-    this.setState({
-      [name]: parseInt(value)
-    });
+    value &&
+      (value !== "NaN" &&
+        this.setState({
+          [name]: parseInt(value)
+        }));
   };
   render() {
     const descBox = {
