@@ -14,22 +14,34 @@ export class SlideProduk extends Component {
         <h3 style={{ margin: "1em 0 .5em .5em" }}>{this.props.title}</h3>
         <Slider {...settings}>
           <div>
-            <Card />
+            <div style={{ padding: "1em" }}>
+              <Card />
+            </div>
           </div>
           <div>
-            <Card />
+            <div style={{ padding: "1em" }}>
+              <Card />
+            </div>
           </div>
           <div>
-            <Card />
+            <div style={{ padding: "1em" }}>
+              <Card />
+            </div>
           </div>
           <div>
-            <Card />
+            <div style={{ padding: "1em" }}>
+              <Card />
+            </div>
           </div>
           <div>
-            <Card />
+            <div style={{ padding: "1em" }}>
+              <Card />
+            </div>
           </div>
           <div>
-            <Card />
+            <div style={{ padding: "1em" }}>
+              <Card />
+            </div>
           </div>
         </Slider>
       </Fragment>
