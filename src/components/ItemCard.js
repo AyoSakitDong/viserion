@@ -10,7 +10,7 @@ export class ItemCard extends Component {
     const { idObat, namaObat, deskripsi, img, harga } = this.props.data;
     return (
       <div>
-        <Link to={`/detailproduk?id=${idObat}`}>
+        <Link to={`/detailproduk/${idObat}`}>
           <Card className="mx-auto">
             <Card.Img
               variant="top"

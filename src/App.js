@@ -37,7 +37,7 @@ function App() {
             <Route path="/register" exact component={Register} />
             <Route path="/search" exact component={Search} />
             <Route path="/cart" exact component={Cart} />
-            <Route path="/detailProduk" exact component={DetailProduk} />
+            <Route path="/detailProduk/:id" exact component={DetailProduk} />
             <Route component={NotFound} />
             <Footer />
           </Switch>

@@ -16,3 +16,20 @@ export const fetchObat = () => dispatch => {
       });
     });
 };
+export const fetchObatById = (id, history) => dispatch => {
+  dispatch({ type: LOADING_UI });
+  axios
+    .get(`/obat/${id}`)
+    .then(res => {
+      dispatch({ type: SET_OBAT, payload: res.data });
+      dispatch({ type: STOP_LOADING_UI });
+    })
+    .catch(err => {
+      dispatch({ type: STOP_LOADING_UI });
+      history.push("/detailproduk");
+      dispatch({
+        type: SET_ERRORS,
+        payload: err.response ? err.response.data : err
+      });
+    });
+};

@@ -36,7 +36,6 @@ export class Chart extends Component {
       color: "#1EA62B",
       fontWeight: "bold"
     };
-    let i = 0;
     const cartMap = this.state.cart.length
       ? this.state.cart.map(item => {
           const price = {
