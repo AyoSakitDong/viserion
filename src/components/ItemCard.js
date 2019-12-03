@@ -7,15 +7,20 @@ import "../style/card.css";
 import { Link } from "react-router-dom";
 export class ItemCard extends Component {
   render() {
+    const { idObat, namaObat, deskripsi, img, harga } = this.props.data;
     return (
       <div>
-        <Link to={"/detailproduk"}>
+        <Link to={`/detailproduk?id=${idObat}`}>
           <Card className="mx-auto">
-            <Card.Img variant="top" src="https://via.placeholder.com/100x80" />
+            <Card.Img
+              variant="top"
+              src={img}
+              style={{ width: "auto", height: "150px" }}
+            />
             <Card.Body>
-              <Card.Title style={{ margin: 0 }}>Nama obat</Card.Title>
+              <Card.Title style={{ margin: 0 }}>{namaObat}</Card.Title>
               <div>
-                <strong>Rp. 52.000,-</strong>
+                <strong>Rp. {harga},-</strong>
                 <div className="text-warning">
                   <FontAwesomeIcon icon={faStar} />
                   <FontAwesomeIcon icon={faStar} />
@@ -23,6 +28,7 @@ export class ItemCard extends Component {
                   <FontAwesomeIcon icon={farStar} />
                   <FontAwesomeIcon icon={farStar} />
                 </div>
+                <p>{deskripsi}</p>
               </div>
             </Card.Body>
           </Card>

@@ -2,6 +2,8 @@
 
 live preview http://ayo-sakit.surge.sh/
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/980c2b3f-480d-4503-aba6-368c640b86c0/deploy-status)](https://app.netlify.com/sites/friendly-mayer-52a0ae/deploys)
+
 - Clone or Pull this repository
 - Run `npm install` or `yarn install`
 - Fire up your favourite code editor
