@@ -3,13 +3,15 @@ import thunk from "redux-thunk";
 
 import uiReducer from "./reducers/uiReducer";
 import obatReducer from "./reducers/obatReducer";
+import userReducer from "./reducers/userReducer";
 const initialState = {};
 
 const middleware = [thunk];
 
 const reducers = combineReducers({
   ui: uiReducer,
-  obat: obatReducer
+  obat: obatReducer,
+  user: userReducer
 });
 const composeEnhancers =
   typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__

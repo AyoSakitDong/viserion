@@ -5,6 +5,9 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import { loginUser } from "../redux/actions/userActions";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 export class Login extends Component {
   constructor(props) {
     super(props);
@@ -15,6 +18,14 @@ export class Login extends Component {
     this.setState({
       [name]: value
     });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    const userData = {
+      email: this.state.email,
+      password: this.state.password
+    };
+    this.props.loginUser(userData, this.props.history);
   };
   render() {
     const title = {
@@ -35,7 +46,7 @@ export class Login extends Component {
               }}
             >
               <p style={title}>Login</p>
-              <Form>
+              <Form onSubmit={this.handleSubmit}>
                 <Form.Group controlId="formGroupEmail">
                   <Form.Label className="color-primary">
                     Email address
@@ -87,5 +98,11 @@ export class Login extends Component {
     );
   }
 }
-
-export default Login;
+const mapStateToProps = state => ({
+  user: state.user,
+  ui: state.ui
+});
+const mapActionsToProps = {
+  loginUser
+};
+export default withRouter(connect(mapStateToProps, mapActionsToProps)(Login));
