@@ -1,4 +1,4 @@
-# React front-end
+# front-end
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/980c2b3f-480d-4503-aba6-368c640b86c0/deploy-status)](https://app.netlify.com/sites/friendly-mayer-52a0ae/deploys)
 
