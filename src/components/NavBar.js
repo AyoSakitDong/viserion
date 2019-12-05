@@ -59,7 +59,7 @@ export class NavBar extends Component {
                 </NavLink>
               </Nav>
             ) : (
-              <Link onClick={this.props.logoutUser}>
+              <Link to="/" onClick={this.props.logoutUser}>
                 {this.props.user.userInfo.nama}
               </Link>
             )}
