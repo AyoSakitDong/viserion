@@ -4,7 +4,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { signupUser } from "../redux/actions/userActions";
+import { connect } from "react-redux";
+
 export class Register extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +26,18 @@ export class Register extends Component {
       [name]: value
     });
   };
+  handleSubmit = e => {
+    e.preventDefault();
+    const userData = {
+      nama: this.state.name,
+      email: this.state.email,
+      password: this.state.password,
+      confirmPassword: this.state.confirmPassword
+    };
+    this.props.signupUser(userData, this.props.history);
+  };
   render() {
+    const loading = this.props.ui.loading;
     const title = {
       fontWeight: "bold",
       fontSize: "2em",
@@ -42,7 +56,7 @@ export class Register extends Component {
               }}
             >
               <p style={title}>Register</p>
-              <Form>
+              <Form onSubmit={this.handleSubmit}>
                 <Form.Group controlId="formGroupName">
                   <Form.Label>Name</Form.Label>
                   <Form.Control
@@ -113,6 +127,7 @@ export class Register extends Component {
                   </Form.Control>
                 </Form.Group>
                 <Button
+                  disabled={loading}
                   variant="success"
                   type="submit"
                   style={{
@@ -136,4 +151,13 @@ export class Register extends Component {
   }
 }
 
-export default Register;
+const mapStateToProps = state => ({
+  user: state.user,
+  ui: state.ui
+});
+const mapActionsToProps = {
+  signupUser
+};
+export default withRouter(
+  connect(mapStateToProps, mapActionsToProps)(Register)
+);

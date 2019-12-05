@@ -4,10 +4,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { loginUser } from "../redux/actions/userActions";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
 export class Login extends Component {
   constructor(props) {
     super(props);

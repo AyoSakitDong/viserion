@@ -6,7 +6,10 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import Container from "react-bootstrap/Container";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, withRouter } from "react-router-dom";
+import { logoutUser } from "../redux/actions/userActions";
+import { connect } from "react-redux";
+
 export class NavBar extends Component {
   render() {
     return (
@@ -46,14 +49,20 @@ export class NavBar extends Component {
                 </InputGroup.Append>
               </InputGroup>
             </Form>
-            <Nav>
-              <NavLink to="/login" className="nav-link">
-                Login
-              </NavLink>
-              <NavLink to="/register" className="nav-link">
-                Register
-              </NavLink>
-            </Nav>
+            {!this.props.user.authenticated ? (
+              <Nav>
+                <NavLink to="/login" className="nav-link">
+                  Login
+                </NavLink>
+                <NavLink to="/register" className="nav-link">
+                  Register
+                </NavLink>
+              </Nav>
+            ) : (
+              <Link onClick={this.props.logoutUser}>
+                {this.props.user.userInfo.nama}
+              </Link>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>
@@ -61,4 +70,11 @@ export class NavBar extends Component {
   }
 }
 
-export default NavBar;
+const mapStateToProps = state => ({
+  user: state.user,
+  ui: state.ui
+});
+const mapActionsToProps = {
+  logoutUser
+};
+export default withRouter(connect(mapStateToProps, mapActionsToProps)(NavBar));

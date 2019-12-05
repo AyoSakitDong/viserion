@@ -21,6 +21,7 @@ export const loginUser = (userData, history) => dispatch => {
         type: SET_USER,
         payload: { userInfo: res.data }
       });
+      dispatch({ type: SET_AUTHENTICATED });
       history.push("/");
     })
     .catch(err => {
@@ -38,8 +39,8 @@ export const signupUser = (newUserData, history) => dispatch => {
     .then(res => {
       setAuthorizationHeader(res.data);
       dispatch({ type: CLEAR_ERRORS });
-      dispatch({ type: SET_USER, payload: { ...res.data.userInfo } });
-      history.push("/dashboard");
+      dispatch({ type: SET_USER, payload: { userInfo: res.data } });
+      history.push("/");
     })
     .catch(err => {
       dispatch({ type: STOP_LOADING_UI });
